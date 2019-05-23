@@ -1,0 +1,291 @@
+[
+  {
+    "id": 19285,
+    "title": ":de: M\u00fcnchen Fairphoners",
+    "fancy_title": ":de: M\u00fcnchen Fairphoners",
+    "slug": "munchen-fairphoners",
+    "posts_count": 143,
+    "reply_count": 91,
+    "highest_post_number": 151,
+    "image_url": null,
+    "created_at": "2016-06-24T10:46:50.917Z",
+    "last_posted_at": "2019-04-28T14:29:42.980Z",
+    "bumped": true,
+    "bumped_at": "2019-04-13T12:09:30.305Z",
+    "unseen": false,
+    "pinned": false,
+    "unpinned": null,
+    "visible": true,
+    "closed": false,
+    "archived": false,
+    "bookmarked": null,
+    "liked": null,
+    "unicode_title": "\ud83c\udde9\ud83c\uddea M\u00fcnchen Fairphoners",
+    "tags": [
+      "m\u00fcnchen",
+      "localcommunities",
+      "\ud83c\udde9\ud83c\uddea"
+    ],
+    "views": 9991,
+    "like_count": 292,
+    "has_summary": true,
+    "archetype": "regular",
+    "last_poster_username": "urs_lesse",
+    "category_id": 42,
+    "pinned_globally": false,
+    "featured_link": null,
+    "event": {
+      "start": "2019-05-27T16:30:12+00:00",
+      "timezone": "Europe/Brussels"
+    },
+    "event_going_total": 0,
+    "location": {
+      "name": "EineWeltHaus (Raum 111/112)",
+      "geo_location": {
+        "lat": "48.137848",
+        "lon": "11.5529322599364",
+        "address": "EineWeltHaus, 80, Schwanthalerstra\u00dfe, Bezirksteil St. Paul, Stadtbezirk 02 Ludwigsvorstadt-Isarvorstadt, Munich, Upper Bavaria, Bavaria, 80336, Germany",
+        "countrycode": "de",
+        "city": "Munich",
+        "state": "Bavaria",
+        "country": "Germany",
+        "postalcode": "80336",
+        "boundingbox": [
+          "48.1376221",
+          "48.1381046",
+          "11.5528312",
+          "11.5530338"
+        ],
+        "type": "community_centre",
+        "zoomTo": "true",
+        "selected": "true"
+      }
+    },
+    "has_accepted_answer": false,
+    "posters": [
+      {
+        "extras": null,
+        "description": "Original Poster",
+        "user_id": 11209,
+        "primary_group_id": null
+      },
+      {
+        "extras": null,
+        "description": "Frequent Poster",
+        "user_id": 1785,
+        "primary_group_id": null
+      },
+      {
+        "extras": null,
+        "description": "Frequent Poster",
+        "user_id": 324,
+        "primary_group_id": 45
+      },
+      {
+        "extras": null,
+        "description": "Frequent Poster",
+        "user_id": 7483,
+        "primary_group_id": 45
+      },
+      {
+        "extras": "latest",
+        "description": "Most Recent Poster",
+        "user_id": 4312,
+        "primary_group_id": null
+      }
+    ]
+  },
+  {
+    "id": 9703,
+    "title": ":de: :gb: Aachener Fairphone-Stammtisch | Fairphone Community Aachen",
+    "fancy_title": ":de: :gb: Aachener Fairphone-Stammtisch | Fairphone Community Aachen",
+    "slug": "aachener-fairphone-stammtisch-fairphone-community-aachen",
+    "posts_count": 76,
+    "reply_count": 28,
+    "highest_post_number": 92,
+    "image_url": "https://forum.fairphone.com/uploads/default/optimized/2X/e/e8e1b95f7ddff79814d40ba93d857da8ea82f901_2_666x500.jpg",
+    "created_at": "2015-08-26T15:27:58.727Z",
+    "last_posted_at": "2019-04-04T10:05:53.291Z",
+    "bumped": true,
+    "bumped_at": "2019-05-22T22:27:11.936Z",
+    "unseen": false,
+    "pinned": false,
+    "unpinned": null,
+    "visible": true,
+    "closed": false,
+    "archived": false,
+    "bookmarked": null,
+    "liked": null,
+    "unicode_title": "\ud83c\udde9\ud83c\uddea \ud83c\uddec\ud83c\udde7 Aachener Fairphone-Stammtisch | Fairphone Community Aachen",
+    "tags": [
+      "localcommunities",
+      "meetup",
+      "aachen",
+      "\ud83c\udde9\ud83c\uddea",
+      "\ud83c\uddec\ud83c\udde7"
+    ],
+    "views": 25066,
+    "like_count": 251,
+    "has_summary": true,
+    "archetype": "regular",
+    "last_poster_username": "urs_lesse",
+    "category_id": 42,
+    "pinned_globally": false,
+    "featured_link": null,
+    "event": {
+      "start": "2019-06-04T17:00:56+00:00",
+      "timezone": "Europe/Brussels",
+      "rsvp": true
+    },
+    "event_going_total": 2,
+    "location": {
+      "geo_location": {
+        "lat": "50.77368325",
+        "lon": "6.09108058635786",
+        "address": "Pfannenzauber, 12, Suermondtplatz, Kaiserplatz, Burtscheid, Aachen-Mitte, Aachen, St\u00e4dteregion Aachen, Cologne Government Region, North Rhine-Westphalia, 52062, Germany",
+        "countrycode": "de",
+        "city": "Aachen",
+        "state": "North Rhine-Westphalia",
+        "country": "Germany",
+        "postalcode": "52062",
+        "boundingbox": [
+          "50.7736169",
+          "50.773745",
+          "6.0908388",
+          "6.0912179"
+        ],
+        "type": "restaurant",
+        "selected": "true",
+        "zoomTo": "true"
+      }
+    },
+    "has_accepted_answer": false,
+    "posters": [
+      {
+        "extras": "latest",
+        "description": "Original Poster, Most Recent Poster",
+        "user_id": 4312,
+        "primary_group_id": null
+      },
+      {
+        "extras": null,
+        "description": "Frequent Poster",
+        "user_id": 3945,
+        "primary_group_id": 45
+      },
+      {
+        "extras": null,
+        "description": "Frequent Poster",
+        "user_id": 324,
+        "primary_group_id": 45
+      },
+      {
+        "extras": null,
+        "description": "Frequent Poster",
+        "user_id": 15299,
+        "primary_group_id": 45
+      },
+      {
+        "extras": null,
+        "description": "Frequent Poster",
+        "user_id": 18469,
+        "primary_group_id": 42
+      }
+    ]
+  },
+  {
+    "id": 48657,
+    "title": "#EFCT19: European Fairphoners Community Trip to Amsterdam 2019 (25/8-31/8)",
+    "fancy_title": "#EFCT19: European Fairphoners Community Trip to Amsterdam 2019 (25/8-31/8)",
+    "slug": "efct19-european-fairphoners-community-trip-to-amsterdam-2019-25-8-31-8",
+    "posts_count": 13,
+    "reply_count": 6,
+    "highest_post_number": 13,
+    "image_url": "https://forum.fairphone.com/uploads/default/optimized/2X/8/8a0ea094099a62e67c346aa3e137650e2fd6199e_2_690x459.jpg",
+    "created_at": "2019-03-01T10:59:36.041Z",
+    "last_posted_at": "2019-04-29T21:53:38.003Z",
+    "bumped": true,
+    "bumped_at": "2019-04-29T21:53:38.003Z",
+    "unseen": false,
+    "pinned": true,
+    "unpinned": null,
+    "excerpt": "After the success of #efct16, #efct17 and #efct18, we will again go to Amsterdam in summer in 2019! All Fairphoners and other people interested in Fairphone are welcome. \nWe are now planning to book a hostel room: Likely&hellip;",
+    "visible": true,
+    "closed": false,
+    "archived": false,
+    "bookmarked": null,
+    "liked": null,
+    "tags": [
+      "efct19"
+    ],
+    "views": 432,
+    "like_count": 27,
+    "has_summary": false,
+    "archetype": "regular",
+    "last_poster_username": "rmf",
+    "category_id": 42,
+    "pinned_globally": false,
+    "featured_link": null,
+    "event": {
+      "start": "2019-08-24T22:00:24+00:00",
+      "end": "2019-08-30T22:00:24+00:00",
+      "all_day": true,
+      "rsvp": true
+    },
+    "event_going_total": 4,
+    "location": {
+      "geo_location": {
+        "lat": "52.3745403",
+        "lon": "4.89797550561798",
+        "address": "Amsterdam, North Holland, Netherlands",
+        "countrycode": "nl",
+        "city": "Amsterdam",
+        "state": "North Holland",
+        "country": "Netherlands",
+        "postalcode": "",
+        "boundingbox": [
+          "52.2781742",
+          "52.4310638",
+          "4.7292418",
+          "5.0791622"
+        ],
+        "type": "administrative",
+        "selected": "true",
+        "zoomTo": "true"
+      }
+    },
+    "has_accepted_answer": false,
+    "posters": [
+      {
+        "extras": null,
+        "description": "Original Poster",
+        "user_id": 11589,
+        "primary_group_id": null
+      },
+      {
+        "extras": null,
+        "description": "Frequent Poster",
+        "user_id": 2215,
+        "primary_group_id": 45
+      },
+      {
+        "extras": null,
+        "description": "Frequent Poster",
+        "user_id": 17056,
+        "primary_group_id": null
+      },
+      {
+        "extras": null,
+        "description": "Frequent Poster",
+        "user_id": 324,
+        "primary_group_id": 45
+      },
+      {
+        "extras": "latest",
+        "description": "Most Recent Poster",
+        "user_id": 22964,
+        "primary_group_id": 45
+      }
+    ]
+  }
+]
