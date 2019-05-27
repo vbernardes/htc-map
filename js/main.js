@@ -22,22 +22,6 @@
       }, {});
   }
 
-  /* Constants */
-  var COMMUNITY_DOMAIN = 'fairphone.community'
-  var TOPIC_URL = 'https://forum.fairphone.com/t/'
-
-
-
-  var MARKERICONS = ["blue", "brown", "green", "grey", "orange", "pink", "red"]
-    .reduce(function(markericons, color) {
-      markericons[color] = L.icon({
-          iconUrl: 'resources/FairphoneMarker_' + color + '.png',
-          iconAnchor: [15.9, 49],
-        });
-      return markericons;
-    }, {});
-
-  var CURRENTDATE = new Date();
 
   var EXCLUDED_LAYERS = [];
 
@@ -49,14 +33,10 @@
     spiderfyOnMaxZoom: false
   });
   var overlaysData = {
-    angels: {
-      title: "Fairphone Angels",
+    chapters: {
+      title: "Meetup Chapters",
       overlay: L.featureGroup.subGroup(cluster),
-    },
-    events: {
-      title: "Meetups & Events",
-      overlay: L.featureGroup.subGroup(cluster),
-    },
+    }
   }
   var activeLayers = Object.keys(overlaysData).filter(function(key){
     return !EXCLUDED_LAYERS.includes(key);
@@ -108,7 +88,7 @@
 
   function initMap(defaultOverlays) {
     var baseLayer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a> | &copy; <a href="https://github.com/WeAreFairphone/fprsmap" target="_blank">WeAreFairphone</a> (<a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GPLv3</a>)',
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a> | &copy; <a href="https://github.com/humanetech-community" target="_blank">Humane Tech Community</a> (<a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GPLv3</a>)',
       maxZoom: 18,
     });
 
@@ -122,7 +102,7 @@
 
     if (isEmbedded()) {
       map.scrollWheelZoom.disable();
-      map.attributionControl.setPrefix('<a href="https://map.fairphone.community/" target="_blank">See bigger map</a> | Leaflet');
+      map.attributionControl.setPrefix('<a href="https://map.humanetech.community/" target="_blank">See bigger map</a> | Leaflet');
     } else {
       map.addControl(new L.Control.Fullscreen());
     }
@@ -139,8 +119,8 @@
   }
 
   function updateEmbedTextareaContent() {
-    embedTextareaContent = '<iframe src="https://map.fairphone.community/?show=' + activeLayers.toString() + '" width="100%" height="400" allowfullscreen="true" frameborder="0">\n' +
-    '<p><a href="https://map.fairphone.community/?show=' + activeLayers.toString() + '" target="_blank">See the Fairphone Community Map!</a></p>\n' +
+    embedTextareaContent = '<iframe src="https://map.humanetech.community/?show=' + activeLayers.toString() + '" width="100%" height="400" allowfullscreen="true" frameborder="0">\n' +
+    '<p><a href="https://map.humanetech.community/?show=' + activeLayers.toString() + '" target="_blank">See the Humane Tech Community Map!</a></p>\n' +
     '</iframe>';
     try{
       document.getElementById('embed-textarea').value = embedTextareaContent;
@@ -211,89 +191,31 @@
   map.on('overlayadd', onOverlayadd);
   map.on('overlayremove', onOverlayremove);
 
-  // Populate Fairphone Angels overlay
-  fetchJSON('data/angels.json')
+  // Populate Meetup Chapters overlay
+  fetchJSON('data/chapters.json')
     .then(function(json) {
-      // Add a marker per Heaven
-      json.heavens.forEach(function(heaven) {
-        var circle = L.circle(heaven.lat_lng, { radius: 30000, color: '#2ca7df', stroke:false, fillOpacity: 0.5 })
-          .bindPopup(
-            '<a href="mailto:' + heaven.location.toLowerCase() + '@' + COMMUNITY_DOMAIN + '">' + heaven.location + '<br>@' + COMMUNITY_DOMAIN + '<a>',
-          );
-        circle.addTo(overlaysData.angels.overlay);
+      // Add a marker per Meetup city
+      json.chaptersList.forEach(function(city) {
+
+        // arg: username containing '@'
+        function getHTCUserURL(username) {
+          return 'https://community.humanetech.com/u/'+username.replace('@','')+'/summary';
+        }
+
+        var popupContent = '<p><strong>City:</strong> '+city.city+'</p> ';
+        city.chapters.forEach(function(chapter) {
+          var organizerList = [];
+          chapter.organizers.forEach(function(organizer) {
+            organizerList.push('<a href='+getHTCUserURL(organizer)+' target="_blank" rel="noopener">'+organizer+'</a>');
+          });
+          popupContent += '<p><strong>Organizer(s):</strong> '+organizerList.join(', ')+'<br>'+
+                          '<strong><a href='+chapter.meetup_url+' target="_blank" rel="noopener">Meetup Link</a></strong>' +
+                          '</p>';
+        });
+
+        var circle = L.circle(city.lat_lng, { radius: 30000, color: '#2ca7df', stroke:false, fillOpacity: 0.5 })
+          .bindPopup(popupContent);
+        circle.addTo(overlaysData.chapters.overlay);
       });
     });
-
-    //Populate Events & Meetups overlay (events fetched from Fairphone Forum agenda)
-    // https://forum.fairphone.com/agenda.json
-    fetchJSON('data/events.json')
-      .then(function(topics) {
-        topics.forEach(function(topic) {
-          if(topic.event && topic.location.geo_location) {
-            var e = topic.event,
-                l = topic.location.geo_location,
-                name = topic.location.name
-
-            var popup = '<a href="' + TOPIC_URL + topic.id + '" target="_blank">' + (topic.unicode_title || topic.title) + '</a>' +
-              '<br><div class="shopinfo">Start: ' +
-              new Date(e.start).toLocaleDateString() + ' | ' +
-              new Date(e.start).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
-            if(e.end) {
-              popup += '<br>End: ' +
-              new Date(e.end).toLocaleDateString() + ' | ' +
-              new Date(e.end).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) + '</div>';
-            }
-            popup += '</div>';
-
-            popup += '<div class="shopinfo">Where: '
-            if(name) popup += name + '<br>' + '&emsp;'
-            popup += l.postalcode + ' ' + (l.city || l.state) + ', ' + l.country + '</div>';
-
-            var marker = L.marker([l.lat,l.lon], { icon: MARKERICONS.orange, riseOnHover: true })
-              .bindPopup(popup, { offset: new L.Point(0, -25)});
-            marker.addTo(overlaysData.events.overlay);
-          }
-        })
-        /*
-        json.list.forEach(function(area) {
-          var nextEvent;
-          if(area.events) {
-            //discard all events that took place before today
-            area.events = area.events.filter(function(event) {
-              event.date = new Date(event.date[0], event.date[1]-1, event.date[2], event.date[3], event.date[4]);
-              return event.date.getTime() > CURRENTDATE.getTime();
-            });
-            //find the one closest to today
-            if(area.events.length > 0) {
-              nextEvent = area.events.reduce(function(nextEvent, currentEvent) {
-                if(currentEvent.date.getTime() < nextEvent.date.getTime()) {
-                  return currentEvent;
-                } else {
-                  return nextEvent;
-                };
-              });
-            };
-            if(nextEvent) {
-              var popup = '<a href="' + nextEvent.url + '" target="_blank">' + nextEvent.name + '</a>' +
-                '<br><div class="shopinfo">When: ' +
-                nextEvent.date.toLocaleDateString() + ' | ' + nextEvent.date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) + '</div>';
-              if(nextEvent.venue || nextEvent.address) {
-                popup = popup + '<div class="shopinfo">Where: ';
-                if(nextEvent.venue) {
-                  popup = popup + nextEvent.venue;
-                }
-                if(nextEvent.address) {
-                  popup = popup + '<br>' +
-                    '&emsp;' + nextEvent.address + '<br>' +
-                    '&emsp;' + nextEvent.zipcode + ' ' + nextEvent.city;
-                };
-                popup = popup + '</div>';
-              };
-              var marker = L.marker(nextEvent.lat_lng, { icon: MARKERICONS.orange, riseOnHover: true })
-                .bindPopup(popup, { offset: new L.Point(0, -25)});
-              marker.addTo(overlaysData.events.overlay);
-            };
-          };
-        });*/
-      });
 }(this));
