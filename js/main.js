@@ -102,7 +102,7 @@
 
     if (isEmbedded()) {
       map.scrollWheelZoom.disable();
-      map.attributionControl.setPrefix('<a href="https://map.humanetech.community/" target="_blank">See bigger map</a> | Leaflet');
+      map.attributionControl.setPrefix('<a href="https://vbernardes.github.io/htc-map/" target="_blank">See bigger map</a> | Leaflet');
     } else {
       map.addControl(new L.Control.Fullscreen());
     }
@@ -119,8 +119,8 @@
   }
 
   function updateEmbedTextareaContent() {
-    embedTextareaContent = '<iframe src="https://map.humanetech.community/?show=' + activeLayers.toString() + '" width="100%" height="400" allowfullscreen="true" frameborder="0">\n' +
-    '<p><a href="https://map.humanetech.community/?show=' + activeLayers.toString() + '" target="_blank">See the Humane Tech Community Map!</a></p>\n' +
+    embedTextareaContent = '<iframe src="https://vbernardes.github.io/htc-map/?show=' + activeLayers.toString() + '" width="100%" height="400" allowfullscreen="true" frameborder="0">\n' +
+    '<p><a href="https://vbernardes.github.io/htc-map/?show=' + activeLayers.toString() + '" target="_blank">See the Humane Tech Community Map!</a></p>\n' +
     '</iframe>';
     try{
       document.getElementById('embed-textarea').value = embedTextareaContent;
