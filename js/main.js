@@ -36,6 +36,10 @@
     chapters: {
       title: "Meetup Chapters",
       overlay: L.featureGroup.subGroup(cluster),
+    },
+    groups: {
+      title: "Other Meetup Groups",
+      overlay: L.featureGroup.subGroup(cluster),
     }
   }
   var activeLayers = Object.keys(overlaysData).filter(function(key){
@@ -191,16 +195,16 @@
   map.on('overlayadd', onOverlayadd);
   map.on('overlayremove', onOverlayremove);
 
+  // arg: username containing '@'
+  function getHTCUserURL(username) {
+    return 'https://community.humanetech.com/u/'+username.replace('@','')+'/summary';
+  }
+
   // Populate Meetup Chapters overlay
   fetchJSON('data/chapters.json')
     .then(function(json) {
       // Add a marker per Meetup city
       json.chaptersList.forEach(function(city) {
-
-        // arg: username containing '@'
-        function getHTCUserURL(username) {
-          return 'https://community.humanetech.com/u/'+username.replace('@','')+'/summary';
-        }
 
         var popupContent = '<p><strong>City:</strong> '+city.city+'</p> ';
         city.chapters.forEach(function(chapter) {
@@ -213,9 +217,39 @@
                           '</p>';
         });
 
-        var circle = L.circle(city.lat_lng, { radius: 30000, color: '#2ca7df', stroke:false, fillOpacity: 0.5 })
+        var circleMarker = L.circleMarker(city.lat_lng, { radius: 11, color: '#0054a5', stroke:false, fillOpacity: 0.5 })
           .bindPopup(popupContent);
-        circle.addTo(overlaysData.chapters.overlay);
+        circleMarker.addTo(overlaysData.chapters.overlay);
+      });
+    });
+
+  // Create custom marker for Other Groups
+  var triangleIcon = L.icon({
+    iconUrl: 'resources/triangle-marker-orange.png',
+    iconAnchor: [12, 21]
+  });
+  // Populate Other Groups overlay
+  fetchJSON('data/otherGroups.json')
+    .then(function(json) {
+      // Add a marker per Group city
+      json.otherGroupsList.forEach(function(city) {
+
+        var popupContent = '<p><strong>City:</strong> '+city.city+'</p> ';
+        city.groups.forEach(function(group) {
+          if (group.organizers.length > 0) {
+            var organizerList = [];
+            group.organizers.forEach(function(organizer) {
+              organizerList.push('<a href='+getHTCUserURL(organizer)+' target="_blank" rel="noopener">'+organizer+'</a>');
+            });
+            popupContent += '<p><strong>Organizer(s):</strong> '+organizerList.join(', ')+'</p>';
+          };
+          popupContent += '<p><strong><a href='+group.meetup_url+' target="_blank" rel="noopener">Meetup Link</a></strong>' +
+                          '</p>';
+        });
+
+        var marker = L.marker(city.lat_lng, { icon: triangleIcon, riseOnHover: true, opacity: 0.5 })
+          .bindPopup(popupContent, { offset: new L.Point(0, -25)});
+        marker.addTo(overlaysData.groups.overlay);
       });
     });
 }(this));
