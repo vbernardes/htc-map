@@ -42,6 +42,14 @@ otherGroupsList:
   - organizers:
     - '@zack'
     meetup_url: https://www.meetup.com/San-Diego-CONSCIOUSNESS-HACKING-Meetup/
+- city: Toronto
+  lat_lng:
+  - 43.653908
+  - -79.384293
+  groups:
+  - organizers:
+    - '@particle010'
+    meetup_url: https://www.meetup.com/Consciously-Digital-Toronto/
 ---
 {
   "otherGroupsList": {{ page.otherGroupsList | jsonify }}
