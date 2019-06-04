@@ -1,69 +1,35 @@
-# Fairphone Community Map
->_`fprsmap` - abbreviation for "Fairphoners Map"_
+# Humane Tech Community Map
 
 ## About
-The idea for the Fairphone Community Map originated in March 2015 in [a topic][1] on the [Fairphone Forum][2]. The goal is to map the global Fairphone Community and make it easier to find relevant people and places in the user's area.
+The idea for the Humane Tech Community Map originated in February 2018 in [a topic](https://community.humanetech.com/t/map-design-wanted-mapping-local-meetups/1132) on the [Humane Tech Community Forum](https://community.humanetech.com). The goal is to map local meetup groups to make it easier to find relevant people and places in the user’s area.
 
-The map can currently be found at https://map.fairphone.community/ or at https://wearefairphone.github.io/fprsmap/.
+The map can be found on the [Meetup Chapters](https://humanetech.community/activities/meetup-chapters/) page on the Humane Tech Community website.
 
 ## Status of the Project & Contributions
-The project scope is completely defined. Two categories have turned out to be relevant for the community map:
 
-- `angels` ([Local support volunteers][11], so called _Fairphone Angels_) [[Datasource]][17]
-- `events` (Meetups & Events of the Fairphone Community) [[Datasource]][15]
+Two categories are being displayed in the community map:
+
+- **Humane Tech Community Meetup Chapters**—chapters officially related to the HTC Community)
+- **Other Humane Technology-related Meetup Groups**—which are not related to the Humane Tech Community, but are also covering topics in the field of Humane Technology
 
 ### Add events to the Community Map
 
-1. Start a topic in the [#participate:local][category-local] category on the Fairphone Forum
-2. _Add Date and Time_, as well as _Add Location_
-3. Be sure to attach a geo location by clicking _Find Address_ and choosing one of the suggested options.
-4. It is advised to also fill the optional _Name_ text field because otherwise the marker's popup will only show postal code and city
-
-### Fix bugs / develop features
-Please look at the [issues list][4] and help us out\* or give feedback. We are looking forward to your contribution!
-
-\* A [how-to for building the map locally][16] can be found in the Wiki.
+1. Organize a chapter using [meetup.com]() and use the Humane Tech Community [logos](https://github.com/humanetech-community/styleguide/tree/master/logos).
+2. Create a topic in the forum in [Events & Meetups](https://community.humanetech.com/c/central/meetups) with the group information.
+3. The forum moderators will add the entries to the website.
 
 ## Usage examples
-The categories mentioned in the previous paragraph can be used to define an initial state of the map.
+The categories mentioned in the previous section can be used to define an initial state of the map.
 
-- Say you want to promote Fairphone Community events. Append `?show=events` to the URI and only meetups and events will be loaded into the map at start.
-- Multiple parameters are also possible: `https://map.fairphone.community/?show=events,angels` will display both the `events` and the `angels` layers.
+- Say you want to view HTC-affiliated Meetup Chapters. Append `?show=chapters` to the URI and only those chapters will be loaded into the map at start.
+- Multiple parameters are also possible: `?show=chapters,groups` will display both the `chapters` and the `group` layers.
 
 ## Embed the map
-Simply click the embed button ![embed icon][icon] inside the map and you will find the embed code ready to be copied. The embed code provided there will update itself according to the layers you select.
+Simply click the embed button ![embed icon](resources/embed-icon.png) inside the map and you will find the embed code ready to be copied. The embed code provided there will update itself according to the layers you select.
 
-The embed code uses an [iframe][3]. You can also have a look at it here:
-
-```html
-<iframe src="https://map.fairphone.community/" width="100%" height="400" allowfullscreen="true" frameborder="0">
-  <p><a href="https://map.fairphone.community/" target="_blank">See the Fairphone Community Map!</a></p>
-</iframe>
-```
-Modify the `width` and `height` parameters to your liking.
+The embed code uses an [iframe](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe). Please modify the `width` and `height` parameters to your liking.
 
 ## Acknowledgements
-Thank you to [Fairphone][5] for their great support of community projects. They listen to our needs and take into account our requirements for the map.
+A **huge** thank you to the developers of the [Fairphone Community Map](https://github.com/WeAreFairphone/fprsmap/). This project initially took their completed map and it just took us a few tweaks here and there to get our version up and running.
 
-Last but not least, we want to mention [Leaflet.js][7]. It's really a pleasure to work with their great JavaScript library to build this map!
-
-## Contact information
-The developers @Roboe and @StefanBrand can be reached via the Fairphone Forum ([@Roboe][forum-roboe] / [@Stefan][forum-stefan]). If you like, you can also [join the public discussion][13] there.
-
-
-[1]: https://forum.fairphone.com/t/do-you-know-an-open-source-alternative-to-embedded-maps/5088?u=stefan
-[2]: https://forum.fairphone.com/
-[3]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
-[4]: https://github.com/WeAreFairphone/fprsmap/issues
-[5]: https://fairphone.com
-[7]: http://leafletjs.com/
-[11]: https://forum.fairphone.com/t/angel-the-fairphone-angels-program-local-support-by-community-members/33058?u=stefan
-[13]: https://forum.fairphone.com/t/fairphone-community-map/26553?u=stefan
-[15]: https://forum.fairphone.com/agenda
-[16]: https://github.com/WeAreFairphone/fprsmap/wiki/How-to-build-the-map-locally
-[17]: https://forum.fairphone.com/t/data-source-for-fairphone-angels-program/48676?u=stefan
-
-[category-local]: https://forum.fairphone.com/c/participate/local
-[forum-roboe]: https://forum.fairphone.com/u/roboe
-[forum-stefan]: https://forum.fairphone.com/u/stefan
-[icon]: resources/embed-icon.png
+And don’t forget to take a look at what’s happening over at the [HTC Community Forum](https://community.humanetech.com)!
