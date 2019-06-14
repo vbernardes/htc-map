@@ -3,14 +3,6 @@
 # which transforms this header into a valid JSON
 
 otherGroupsList:
-- city: Berlin
-  lat_lng:
-  - 52.520008
-  - 13.404954
-  groups:
-  - organizers:
-    - '@quanders'
-    meetup_url: https://www.meetup.com/Ethical-Technology/
 - city: Hamburg
   lat_lng:
   - 53.551086
@@ -19,6 +11,14 @@ otherGroupsList:
   - organizers:
     - '@quanders'
     meetup_url: https://www.meetup.com/Humane-Technology-Hamburg/
+- city: London
+  lat_lng:
+  - 51.509865
+  - -0.118092
+  groups:
+  - organizers:
+    - '@anded'
+    meetup_url: https://www.meetup.com/Consciously-Digital-London/
 - city: Los Angeles
   lat_lng:
   - 34.052235

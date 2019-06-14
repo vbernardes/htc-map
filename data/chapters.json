@@ -20,6 +20,14 @@ chaptersList:
     - '@Jbjusten'
     - '@AaronChang'
     meetup_url: https://www.meetup.com/Montgomery-County-Humane-Technology-Meetup/
+- city: Berlin
+  lat_lng:
+  - 52.520008
+  - 13.404954
+  chapters:
+  - organizers:
+    - '@welf'
+    meetup_url: https://www.meetup.com/Humane-Technology/
 - city: Brno
   lat_lng:
   - 49.195061
