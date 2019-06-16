@@ -26,6 +26,7 @@ chaptersList:
   - 13.404954
   chapters:
   - organizers:
+    - '@quanders'
     - '@welf'
     meetup_url: https://www.meetup.com/Humane-Technology/
 - city: Brno
