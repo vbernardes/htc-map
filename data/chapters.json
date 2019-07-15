@@ -22,8 +22,8 @@ chaptersList:
     meetup_url: https://www.meetup.com/Montgomery-County-Humane-Technology-Meetup/
 - city: Berlin
   lat_lng:
-  - 52.520008
-  - 13.404954
+  - 52.494081
+  - 13.446372
   chapters:
   - organizers:
     - '@quanders'
